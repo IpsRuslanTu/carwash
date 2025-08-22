@@ -1,7 +1,7 @@
 import React from 'react';
 import {getDaysInMonth} from "@/src/shared/helpers/getDaysInMonth";
 import {dayTitles} from "@/src/shared/consts/dayTitles";
-import {CalendarButton} from "@/src/pages/homePage/components/CalendarButton";
+import {CalendarButton} from "./components/CalendarButton";
 
 export default function HomePage() {
   const today = new Date();
