@@ -18,10 +18,6 @@ export const metadata: Metadata = {
   description: "Запись на автомойку"
 };
 
-export const viewport: Viewport = {
-  colorScheme: "light"
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
