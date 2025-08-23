@@ -31,7 +31,9 @@ export default function RootLayout({
         <main className="bg-gray-100 flex-1 mx-auto max-w-4xl w-full">
           {children}
         </main>
-        <Navbar />
+        <div className="bg-gray-100 sticky bottom-0 w-full">
+          <Navbar />
+        </div>
       </body>
     </html>
   );
