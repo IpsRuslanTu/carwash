@@ -12,7 +12,7 @@ export default function HomePage() {
   const days = getDaysInMonth(year, month);
 
   return (
-    <main className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
+    <div className="flex flex-col items-center p-6">
       <h1 className="text-4xl font-bold text-blue-700 mb-2">Автомойка</h1>
       <h2 className="text-2xl text-gray-700 mb-8 capitalize">{monthName}</h2>
 
@@ -23,17 +23,15 @@ export default function HomePage() {
           </div>
         ))}
         {days.map((day, idx) =>
-          day ? (
-            <CalendarButton key={idx} day={day} month={month} year={year} />
-          ) : (
-            <div key={idx}></div>
-          )
+          day
+            ? <CalendarButton key={idx} day={day} month={month} year={year} />
+            : <div key={idx}></div>
         )}
       </div>
 
       <div className="mt-10 text-center text-gray-500">
         Выберите день для записи на автомойку.
       </div>
-    </main>
+    </div>
   );
 };
