@@ -24,7 +24,7 @@ export default function HomePage() {
         ))}
         {days.map((day, idx) =>
           day
-            ? <CalendarButton key={idx} day={day} month={month} year={year} />
+            ? <CalendarButton key={idx} day={day} month={month} year={year} isActive={day >= today.getDate()} />
             : <div key={idx}></div>
         )}
       </div>
