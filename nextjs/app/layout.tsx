@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type {Metadata, Viewport} from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import {Navbar} from "@/widgets/Navbar/Navbar";
 import "./globals.css";
@@ -15,7 +15,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Автомойка",
-  description: "Запись на автомойку",
+  description: "Запись на автомойку"
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light"
 };
 
 export default function RootLayout({
