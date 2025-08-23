@@ -3,7 +3,7 @@ import {CalendarCheck, Phone, User} from "lucide-react";
 
 export const Navbar = () => {
   return (
-    <nav className="sticky bottom-0 w-full border-t bg-blue-600 rounded-t-2xl shadow-md">
+    <nav className="sticky bottom-0 w-full border-t bg-blue-600 rounded-t-2xl shadow-md bg-gray-100">
       <div className="max-w-4xl mx-auto">
         <ul className="flex justify-around py-2">
           <li>
