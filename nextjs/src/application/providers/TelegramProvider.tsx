@@ -44,7 +44,7 @@ export const TelegramProvider = (props: TelegramProviderProps) => {
 
   return <div className="bg-gray-100 flex-1 mx-auto max-w-4xl w-full">
     <div>Error</div>
-    <div>error</div>
+    <div>{error}</div>
 
     <div>Test</div>
     <div>ID: {test?.id}</div>
