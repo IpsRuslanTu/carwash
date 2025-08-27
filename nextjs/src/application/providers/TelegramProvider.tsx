@@ -33,7 +33,7 @@ export const TelegramProvider = (props: TelegramProviderProps) => {
     tg.ready();
     tg.expand();
 
-    let user = tg.initDataUnsafe?.user || null;
+    const user = tg.initDataUnsafe?.user || null;
     setError(JSON.stringify(user));
 
 
