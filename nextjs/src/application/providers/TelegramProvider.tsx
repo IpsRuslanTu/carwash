@@ -1,7 +1,8 @@
 'use client'
-import {ReactNode, useEffect} from "react";
+import {ReactNode, useEffect, useState} from "react";
 import {useQueryClient} from "@tanstack/react-query";
 import {queryKeys} from "@/shared/consts/queryKeys";
+import {User} from "@/entities/user/model/user";
 
 interface TelegramProviderProps {
   children: ReactNode
@@ -9,6 +10,8 @@ interface TelegramProviderProps {
 
 export const TelegramProvider = (props: TelegramProviderProps) => {
   const queryClient = useQueryClient();
+
+  const [test, setTest] = useState<User>()
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -22,8 +25,16 @@ export const TelegramProvider = (props: TelegramProviderProps) => {
 
     const user = tg.initDataUnsafe?.user || null;
 
+    setTest(user)
+
     queryClient.setQueryData([queryKeys.USER], user);
   }, [queryClient]);
 
-  return <>{props.children}</>;
+  return <>
+    <div>Test</div>
+    <div>ID: {test?.id}</div>
+    <div>Имя: {test?.first_name} {test?.last_name}</div>
+    <div>Username: @{test?.username}</div>
+    {props.children}
+  </>;
 };
