@@ -13,28 +13,43 @@ export const TelegramProvider = (props: TelegramProviderProps) => {
 
   const [test, setTest] = useState<User>()
 
+  const [error, setError] = useState<string>()
+
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined") {
+      setError("window === undefined");
+
+      return;
+    }
 
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const tg = (window as any).Telegram?.WebApp;
-    if (!tg) return;
+    if (!tg) {
+      setError("tg === undefined");
+
+      return;
+    }
 
     tg.ready();
     tg.expand();
 
-    const user = tg.initDataUnsafe?.user || null;
+    let user = tg.initDataUnsafe?.user || null;
+    setError(JSON.stringify(user));
+
 
     setTest(user)
 
     queryClient.setQueryData([queryKeys.USER], user);
   }, [queryClient]);
 
-  return <>
+  return <div className="bg-gray-100 flex-1 mx-auto max-w-4xl w-full">
+    <div>Error</div>
+    <div>error</div>
+
     <div>Test</div>
     <div>ID: {test?.id}</div>
     <div>Имя: {test?.first_name} {test?.last_name}</div>
     <div>Username: @{test?.username}</div>
     {props.children}
-  </>;
+  </div>;
 };
