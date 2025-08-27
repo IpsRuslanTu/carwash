@@ -13,6 +13,7 @@ export const TelegramProvider = (props: TelegramProviderProps) => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const tg = (window as any).Telegram?.WebApp;
     if (!tg) return;
 

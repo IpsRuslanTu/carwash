@@ -1,10 +1,8 @@
 'use client'
-import {useQuery} from "@tanstack/react-query";
-import {queryKeys} from "@/shared/consts/queryKeys";
-import {User} from "@/entities/user";
+import {useUser} from "@/entities/user/services/useUser";
 
 export default function ProfilePage() {
-  const { data: user } = useQuery<User>({ queryKey: [queryKeys.USER] });
+  const user = useUser()
 
   if (!user) return <>Нет данных</>;
 
