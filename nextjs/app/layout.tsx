@@ -1,5 +1,7 @@
-import type {Metadata, Viewport} from "next";
+import type {Metadata} from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import {QueryProvider} from "@/application/providers/QueryProvider";
+import {TelegramProvider} from "@/application/providers/TelegramProvider";
 import {Navbar} from "@/widgets/Navbar/Navbar";
 import "./globals.css";
 
@@ -28,12 +30,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gray-100 flex flex-col`}
       >
-        <main className="bg-gray-100 flex-1 mx-auto max-w-4xl w-full">
-          {children}
-        </main>
-        <div className="bg-gray-100 sticky bottom-0 w-full">
-          <Navbar />
-        </div>
+        <QueryProvider>
+          <TelegramProvider>
+            <main className="bg-gray-100 flex-1 mx-auto max-w-4xl w-full">
+              {children}
+            </main>
+            <div className="bg-gray-100 sticky bottom-0 w-full">
+              <Navbar />
+            </div>
+          </TelegramProvider>
+        </QueryProvider>
       </body>
     </html>
   );

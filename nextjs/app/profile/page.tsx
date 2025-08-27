@@ -1,3 +1,5 @@
-export default function Home() {
-  return <div>Пока пусто</div>
+import ProfilePage from "@/webpages/profilePage/ProfilePage";
+
+export default function Profile() {
+  return <ProfilePage />
 }
