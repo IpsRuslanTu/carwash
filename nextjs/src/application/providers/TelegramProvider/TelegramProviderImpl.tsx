@@ -1,35 +1,35 @@
 'use client'
-import {ReactNode, useEffect} from "react";
-import {init, useRawInitData} from '@telegram-apps/sdk-react';
+import {ReactNode, useEffect} from 'react'
+import {init, useRawInitData} from '@telegram-apps/sdk-react'
 
 interface TelegramProviderProps {
-    children: ReactNode;
+  children: ReactNode
 }
 
 const TelegramProviderImpl = (props: TelegramProviderProps) => {
-    useEffect(() => {
-        init();
-    }, []);
+  useEffect(() => {
+    init()
+  }, [])
 
-    const raw = useRawInitData()
+  const raw = useRawInitData()
 
-    if (!raw) {
-        return <div>⏳ Загрузка Telegram...</div>;
-    }
+  if (!raw) {
+    return <div>⏳ Загрузка Telegram...</div>
+  }
 
-    const params = new URLSearchParams(raw);
-    const userString = params.get("user");
-    const user = userString ? JSON.parse(userString) : null;
+  const params = new URLSearchParams(raw)
+  const userString = params.get('user')
+  const user = userString ? JSON.parse(userString) : null
 
-    if (!user) {
-        return <div>❌ Ошибка: не удалось получить пользователя</div>;
-    }
+  if (!user) {
+    return <div>❌ Ошибка: не удалось получить пользователя</div>
+  }
 
-    return (
-        <>
-            {props.children}
-        </>
-    );
-};
+  return (
+    <>
+      {props.children}
+    </>
+  )
+}
 
 export default TelegramProviderImpl

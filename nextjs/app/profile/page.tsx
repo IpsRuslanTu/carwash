@@ -1,3 +1,4 @@
 export default function Profile() {
-    return <div>Профиль</div>;
+  return <div>Профиль</div>
 }
+

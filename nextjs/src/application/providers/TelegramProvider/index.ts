@@ -1,3 +1,3 @@
-import {TelegramProvider} from "./TelegramProvider";
+import { TelegramProvider } from './TelegramProvider'
 
-export {TelegramProvider}
+export { TelegramProvider }
