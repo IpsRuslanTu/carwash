@@ -4,6 +4,7 @@ import { QueryProvider } from '@/application/providers/QueryProvider'
 import { TelegramProvider } from '@/application/providers/TelegramProvider'
 import { Navbar } from '@/widgets/Navbar'
 import './globals.css'
+import { ErrorBoundary } from '@/application/providers/ErrorBoundary/ErrorBoundary'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -37,12 +38,14 @@ export default function RootLayout({
           minHeight: '100vh',
         }}
       >
-        <QueryProvider>
-          <TelegramProvider>
-            {children}
-            <Navbar />
-          </TelegramProvider>
-        </QueryProvider>
+        <ErrorBoundary>
+          <QueryProvider>
+            <TelegramProvider>
+              {children}
+              <Navbar />
+            </TelegramProvider>
+          </QueryProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )
