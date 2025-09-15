@@ -27,6 +27,7 @@ const eslintConfig = [
       'semi': [ 'error', 'never' ],
       'object-curly-spacing': [ 'error', 'always' ],
       'array-bracket-spacing': [ 'error', 'always' ],
+      '@typescript-eslint/no-explicit-any': 'off'
     },
   },
 ]

@@ -1,6 +1,7 @@
 'use client'
-import {ReactNode, useEffect} from 'react'
-import {init, useRawInitData} from '@telegram-apps/sdk-react'
+import { ReactNode, useEffect } from 'react'
+import { init, useRawInitData } from '@telegram-apps/sdk-react'
+import { TelegramContext } from '@/shared/contexts/TelegramContext'
 
 interface TelegramProviderProps {
   children: ReactNode
@@ -26,9 +27,9 @@ const TelegramProviderImpl = (props: TelegramProviderProps) => {
   }
 
   return (
-    <>
+    <TelegramContext.Provider value={user}>
       {props.children}
-    </>
+    </TelegramContext.Provider>
   )
 }
 

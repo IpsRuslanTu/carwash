@@ -1,3 +1,8 @@
+'use client'
+import { useTelegramUser } from '@/shared/hooks/useTelegramUser'
+
 export default function ProfilePage() {
-  return <div></div>
+  const { user } = useTelegramUser()
+
+  return <div>{user.username}</div>
 }

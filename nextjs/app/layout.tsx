@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { QueryProvider } from '@/application/providers/QueryProvider'
+import { TelegramProvider } from '@/application/providers/TelegramProvider'
 import { Navbar } from '@/widgets/Navbar'
 import './globals.css'
 
@@ -37,8 +38,10 @@ export default function RootLayout({
         }}
       >
         <QueryProvider>
-          {children}
-          <Navbar />
+          <TelegramProvider>
+            {children}
+            <Navbar />
+          </TelegramProvider>
         </QueryProvider>
       </body>
     </html>
