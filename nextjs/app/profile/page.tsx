@@ -1,4 +1,5 @@
-export default function Profile() {
-  return <div>Профиль</div>
-}
+import ProfilePage from '@/webpages/ProfilePage'
 
+export default function Profile() {
+  return <ProfilePage />
+}
