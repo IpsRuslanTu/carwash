@@ -27,9 +27,17 @@ const TelegramProviderImpl = (props: TelegramProviderProps) => {
   }
 
   return (
-    <TelegramContext.Provider value={user}>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', color: 'black' }} className={'bg-gray-100'}>
+      <h2>Тест провайдера</h2>
+      <p><strong>ID:</strong> {user.id}</p>
+      <p><strong>Имя:</strong> {user.first_name} {user.last_name ?? ''}</p>
+      <p><strong>Username:</strong> @{user.username ?? 'нет'}</p>
+      <p><strong>Язык:</strong> {user.language_code}</p>
+
+      <hr style={{ margin: '20px 0' }} />
+
       {props.children}
-    </TelegramContext.Provider>
+    </div>
   )
 }
 
