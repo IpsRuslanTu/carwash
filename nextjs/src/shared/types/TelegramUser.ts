@@ -6,5 +6,6 @@ export interface TelegramUser {
 }
 
 export interface TelegramContextValue {
-  user: TelegramUser
+  user: TelegramUser | null
+  loading: boolean
 }

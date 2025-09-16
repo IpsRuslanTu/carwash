@@ -2,15 +2,11 @@
 import { useTelegramUser } from '@/shared/hooks/useTelegramUser'
 
 export default function ProfilePage() {
-  const context = useTelegramUser()
+  const { user, loading } = useTelegramUser()
 
-  if (!context.user) {
+  if (loading || !user) {
     return <div>⏳ Загрузка профиля...</div>
   }
 
-  return (
-    <div>
-      👤 {context.user.username || `ID: ${context.user.id}`}
-    </div>
-  )
+  return <div>👤 {user.username || `ID: ${user.id}`}</div>
 }
