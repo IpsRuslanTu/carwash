@@ -6,18 +6,16 @@ interface Props {
   children: ReactNode
 }
 
-const mockContext = {
-  user: {
-    id: 1,
-    username: 'dev_user',
-    first_name: 'Dev',
-    last_name: 'Mode',
-  }
+const user = {
+  id: 1,
+  username: 'dev_user',
+  first_name: 'Dev',
+  last_name: 'Mode',
 }
 
 const TelegramProviderDev = ({ children }: Props) => {
   return (
-    <TelegramContext.Provider value={mockContext}>
+    <TelegramContext.Provider value={{ user, loading: false }}>
       {children}
     </TelegramContext.Provider>
   )
